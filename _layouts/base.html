@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    {% include header.html %}
+    <div class="container">
+      {% for language in site.data.issues %}
+        <div class="language">
+          <h2 id="{{ language.name }}"><span class="label label-primary">{{ language.issues | size }}</span> {{ language.name }}</h2>
+          {% for issue in language.issues %}
+            <div class="issue row">
+              <div class="description col-md-8">
+                <h3 class="title">{{ issue.title | markdownify | strip_html | truncate: 50 }}</h3>
+                <ul class="labels list-style-inline list-unstyled">
+                  {% for label in issue.labels %}
+                  <li class="label label-default">{{ label }}</li>
+                  {% endfor %}
+                </ul>
+                <p class="body">{{ issue.body | markdownify | strip_html | truncate: 216 }}</p>
+                <p class="link lead"><a href="{{ issue.html_url }}">{{ issue.full_name }}#{{ issue.number }}</a></p>
+              </div>
+              <div class="more col-md-2 col-md-offset-2">
+                <p class="created"><strong>Created at:</strong> {{ issue.created_at | date: "%Y-%m-%d" }}</p>
+                <p class="updated"><strong>Updated at:</strong> {{ issue.updated_at | date: "%Y-%m-%d" }}</p>
+                {% capture comments_label_class %}
+                {% if issue.comments > 9 %}
+                  label-danger
+                {% elsif issue.comments > 4 %}
+                  label-warning
+                {% else %}
+                  label-success
+                {% endif %}
+                {% endcapture %}
+                <p class="comments"><strong>Comments:</strong> <span class="label {{ comments_label_class }}">{{ issue.comments }}</span></p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+    {% include footer.html %}
+  </body>
+</html>

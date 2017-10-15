@@ -1,0 +1,42 @@
+body {
+  padding-top: 70px;
+  padding-bottom: 20px;
+}
+
+.navbar-form {
+  margin-top: 20px;
+}
+
+.bootstrap-select .btn {
+  height: 40px;
+}
+
+.description .title {
+  margin-bottom: 2.5px;
+}
+
+.description .labels {
+  margin-bottom: 2.5px;
+}
+
+.more .comments .label,
+.language h2 .label {
+  font-size: 100%;
+}
+
+.more {
+  margin-top: 20px;
+}
+
+.more p {
+  margin-bottom: 2.5px;
+}
+
+.footer {
+  border-top: 1px solid #e5e5e5;
+}
+
+.footer .signature {
+  margin-top: 20px;
+  margin-bottom: 0;
+}

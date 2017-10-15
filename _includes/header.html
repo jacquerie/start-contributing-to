@@ -1,0 +1,14 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <h1 class="navbar-header">Start contributing to {{ site.data.org.name | capitalize }}!</h1>
+    <form class="navbar-form navbar-right">
+      <div class="form-group">
+        <select id="language" class="selectpicker" data-width="360px" title="Choose a programming language">
+          {% for language in site.data.issues %}
+          <option>{{ language.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </form>
+  </div>
+</nav>
