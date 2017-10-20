@@ -1,4 +1,4 @@
 .jekyll-metadata
-
-_data
+_data/issues.yaml
+_data/org.yaml
 _site
